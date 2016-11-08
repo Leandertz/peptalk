@@ -21,8 +21,9 @@ def AddPep():
     return "Adds a pep from request input data"
 
 @app.route("/v1/peps/<int:pep_id>", methods=['PUT'])
-def UpdatePep(pep_id):
-    return "Update the pep with id = %s with the text: %s" % pep_id, % request.data
+def UpdatePep(pep_id,request):
+    body=
+    return "Update the pep with id = %s with the text: %s" % pep_id, request.data
 
 @app.route("/v1/peps/<int:pep_id>", methods=['DELETE'])
 def RemovePep(pep_id):
