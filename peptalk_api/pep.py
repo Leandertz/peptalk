@@ -10,8 +10,8 @@ def index():
 
 @app.route("/v1/peps/", methods=['GET'])
 def AllPeps():
-    readfile = {'id': '1', 'pep': 'You go! You\'re strong'}
-    response = jsonify(readfile)
+    # readfile = {'id': '1', 'pep': 'You go! You\'re strong'}
+    # response = jsonify(readfile)
     print response
     return "Read a file with all peps and return them as JSON"
 
@@ -25,7 +25,7 @@ def AddPep():
 
 @app.route("/v1/peps/<int:pep_id>", methods=['PUT'])
 def UpdatePep(pep_id):
-    return "Update the pep with id = %s with the text: %s " % pep_id, request.data
+    return "Update the pep with id = %s with the text: %s " % (pep_id, request.data)
 
 @app.route("/v1/peps/<int:pep_id>", methods=['DELETE'])
 def RemovePep(pep_id):
