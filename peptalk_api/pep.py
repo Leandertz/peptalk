@@ -1,15 +1,18 @@
 #Importerar Flask klassen och Request klassen till koden
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 # instansierar ett objekt av klassen Flask
 app = Flask(__name__)
 
-@app.route("/", methods=['GET','POST'])
+@app.route("/", methods=['GET'])
 def index():
-    return "Testing root path. If you see this it works for %s -requests" % request.methods
+    return "Testing root path. If you see this it works for %s -requests" % request.method
 
 @app.route("/v1/peps/", methods=['GET'])
 def AllPeps():
+    readfile = {'id': '1', 'pep': 'You go! You\'re strong'}
+    response = jsonify(readfile)
+    print response
     return "Read a file with all peps and return them as JSON"
 
 @app.route("/v1/peps/<int:pep_id>", methods=['GET'])
